@@ -11,16 +11,22 @@ app.get('/', (req, res) => {
     </form>`);
 });
 
-app.get('/about/:name/:age', (req, res) => {
-  console.log(req.params);
-  console.log(req.query);
-  res.send('This is the about PAGE.');
-});
-
-
 app.post('/submit', (req, res) => {
   console.log(req.body);
-  res.send(`Form submitted successfully!: ${req.body.username}`);
+  res.send(`Oque vc me enviou foi: ${req.body.username}`);
+});
+
+app.get('/testes/:id_Usuarios', (req, res) => {
+
+  console.log(req.params);
+  res.send(req.params.id_Usuarios);
+});
+
+app.get('/testes', (req, res) => {
+  
+  console.log(req.query);
+  console.log(req.params);
+  res.send('Sem ID');
 });
 
 app.listen(3000, () => {
